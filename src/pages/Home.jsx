@@ -18,3 +18,17 @@ const Home = () => {
       console.log(error);
     }
   };
+  //? didmount
+  useEffect(() => {
+    getTutorials();
+  }, []);
+
+  return (
+    <>
+      <AddTutorial getTutorials={getTutorials} />
+      <TutorialList tutor={tutorials} getTutorials={getTutorials} />
+    </>
+  );
+};
+
+export default Home;
