@@ -5,9 +5,7 @@ const AddTutorial = ({ getTutorials }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-
-
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newTutor = { title, description };
     addTutorial(newTutor);
@@ -15,8 +13,7 @@ const AddTutorial = ({ getTutorials }) => {
     setDescription("");
   };
 
-
-    //! POST - CRUD (Create)
+  //! POST - CRUD (Create)
   const addTutorial = async (newTutor) => {
     const url = "http://127.0.0.1:8000/tutorials/";
     try {
@@ -44,4 +41,24 @@ const AddTutorial = ({ getTutorials }) => {
             required
           />
         </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+            Description
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="desc"
+            placeholder="Enter your Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+        </div>
+        <button className="btn btn-danger mb-4">Submit</button>
+      </form>
+    </div>
+  );
+};
 
+export default AddTutorial;
