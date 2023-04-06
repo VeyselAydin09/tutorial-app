@@ -1,3 +1,11 @@
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
+import EditTutorial from "./EditTutorial";
+import { useState } from "react";
+
+
+
 const TutorialList = () => {
   return 
       <div className="container mt-4">
@@ -36,7 +44,23 @@ const TutorialList = () => {
                     // }
                     onClick={() => setEditItem(item)}
                   />
+ <AiFillDelete
+                    size={22}
+                    type="button"
+                    className="text-danger "
+                    onClick={() => deleteTutorial(id)}
+                  />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
 
+      <EditTutorial editItem={editItem} getTutorials={getTutorials} />
+    </div>
+  );
 };
 
 export default TutorialList;
+
