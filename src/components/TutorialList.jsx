@@ -4,11 +4,35 @@ import axios from "axios";
 import EditTutorial from "./EditTutorial";
 import { useState } from "react";
 
+const TutorialList = ({ tutor, getTutorials }) => {
+  const [editItem, setEditItem] = useState("");
 
+  //! DELETE (CRUD-Delete)
+  const deleteTutorial = async (id) => {
+    const url = "http://127.0.0.1:8000/tutorials";
+    try {
+      await axios.delete(`${url}/${id}/`);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
 
-const TutorialList = () => {
-  return 
-      <div className="container mt-4">
+  // //! PUT (CRUD-Update)
+  // //! PUT: Whole Update, PATCH: Partially Update
+  // const editTutorial = async ({ id, title, description }) => {
+  //   // const { id, title, description } = item;
+  //   const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";
+  //   try {
+  //     await axios.put(`${url}/${id}`, { title, description });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //   getTutorials();
+  // };
+
+  return (
+    <div className="container mt-4">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -44,7 +68,7 @@ const TutorialList = () => {
                     // }
                     onClick={() => setEditItem(item)}
                   />
- <AiFillDelete
+                  <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
@@ -63,4 +87,3 @@ const TutorialList = () => {
 };
 
 export default TutorialList;
-
