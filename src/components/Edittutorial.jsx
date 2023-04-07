@@ -72,3 +72,45 @@ const EditTutorial = ({ getTutorials, editItem }) => {
                     onChange={(e) => setTitle(e.target.value)}
                     required
                   />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="desc" className="form-label">
+                    Description
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="desc"
+                    placeholder="Enter your Description"
+                    value={description || ""}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+            <div className="modal-footer">
+              {/* <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button> */}
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={handleSubmit}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EditTutorial;
