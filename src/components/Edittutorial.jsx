@@ -41,3 +41,34 @@ const EditTutorial = ({ getTutorials, editItem }) => {
     setDescription("");
   };
 
+  return (
+    <div>
+      <div className="modal fade" id="edit-modal" tabIndex={-1}>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Edit Tutorial
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="title" className="form-label">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="title"
+                    placeholder="Enter your title"
+                    value={title || ""}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                  />
